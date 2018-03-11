@@ -44,7 +44,7 @@
     (.setIPAddress geoIp ip)
     geoIp))
 
-(defn find-my-country [ip]
+(defn find-country-of [ip]
   (let [soap-request-body (soap-body-as-string (geo-ip-request ip))
         soap-response (post->soap-endpoint "http://www.webservicex.net/geoipservice.asmx" soap-request-body)
         value-obj (parse-response GetGeoIPResponse soap-response)]
